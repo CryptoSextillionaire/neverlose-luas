@@ -19,9 +19,9 @@ Cheat.RegisterCallback("draw", function()
 				if alpha <= 0 then
 						alpha = 255
 					end
-		  end
+		    end
 	
-		if GetPlayer:IsAlive() then
+		if LocalPlayer and GetPlayer:IsAlive() then
 		    local Weapon =  LocalPlayer:GetActiveWeapon()
 		    local Ammo = Weapon:GetProp("m_iClip1")
 	
