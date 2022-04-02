@@ -3,7 +3,6 @@
 local PositionX = Menu.SliderInt("Text Position", "X", 960, 0, 2000)
 local PositionY = Menu.SliderInt("Text Position", "Y", 500, 0, 2000)
 
-local Timer = GlobalVars.curtime
 local alpha = 255
 
 local FONT = Render.InitFont("Verdana", 20, {"b"})
@@ -13,6 +12,7 @@ Cheat.RegisterCallback("draw", function()
 		local LocalPlayer = EntityList.GetLocalPlayer()
 		local ClientEntity = EntityList.GetClientEntity(EngineClient.GetLocalPlayer())
 		local GetPlayer = ClientEntity:GetPlayer()
+		local Timer = GlobalVars.curtime
 	
 		if GlobalVars.curtime >= Timer then
 				alpha = alpha - 1
