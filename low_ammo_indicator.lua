@@ -1,4 +1,5 @@
 -- @note: need this font: https://anonfiles.com/jff1w0Pax3/verdana-font-family_zip
+-- imported straight from skeet/gamesense
 local PositionX = Menu.SliderInt("Text Position", "X", 960, 0, 2000)
 local PositionY = Menu.SliderInt("Text Position", "Y", 500, 0, 2000)
 
