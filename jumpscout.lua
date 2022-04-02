@@ -11,7 +11,7 @@ Cheat.RegisterCallback("draw", function()
 	
 		if LocalPlayer and GetPlayer:IsAlive() then
 				local InAir = bit.band(LocalPlayer:GetProp("m_fFlags"), bit.lshift(1, 0)) == 0
-				if InAir and ActiveWeapon:GetWeaponID() == 40 then
+				if InAir and ActiveWeapon:GetWeaponID() == 40 then -- scout weapon id
 						AimbotHitChance:Set(OverrideValue:Get())
 				else
 						AimbotHitChance:Set(CachedScoutHitChance)
