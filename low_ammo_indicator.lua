@@ -23,7 +23,7 @@ Cheat.RegisterCallback("draw", function()
 	
 		if LocalPlayer and GetPlayer:IsAlive() then
 		    local Weapon =  LocalPlayer:GetActiveWeapon()
-		    local Ammo = Weapon:GetProp("m_iClip1")
+		    local Ammo = Weapon ~= nil and Weapon:GetProp("m_iClip1")
 	
 		        if Ammo < 3 and Ammo > 0 then
 				    Render.Text("RELOAD", Vector2.new(PositionX:Get(), PositionY:Get()), Color.RGBA(255, 0, 0, alpha), 20, FONT)
