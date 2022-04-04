@@ -2,7 +2,7 @@ local AimbotHitChance = Menu.FindVar("Aimbot", "Ragebot", "Accuracy", "Hit Chanc
 local OverrideValue = Menu.SliderInt("Jumpscout", "In Air Hitchance", 60, 0, 100, "Hitchance Override Value")
 local CachedScoutHitChance = AimbotHitChance:Get()
 
-Cheat.RegisterCallback("draw", function()
+Cheat.RegisterCallback("prediction", function()
 		local LocalPlayer = EntityList.GetLocalPlayer()
 	
 		if not LocalPlayer or not LocalPlayer:IsAlive() then
