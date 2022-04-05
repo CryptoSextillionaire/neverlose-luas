@@ -1,0 +1,11 @@
+local RollAmount = Menu.SliderInt("Roll", "Roll Value", 80, 0, 100)
+local SlowWalk = Menu.FindVar("Aimbot", "Anti Aim", "Misc", "Slow Walk")
+
+local function onPrediction(cmd)
+	local LocalPlayer = EntityList.GetLocalPlayer()
+	if SlowWalk:Get() then
+		cmd.viewangles.roll = RollAmount:Get()
+		end
+end
+
+Cheat.RegisterCallback("prediction", onPrediction)
