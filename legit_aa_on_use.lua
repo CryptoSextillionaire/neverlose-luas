@@ -37,7 +37,7 @@ local function IsPlanting()
 		end
 end
 
-local function onPrediction(cmd)
+local function onPrePrediction(cmd)
 		local LocalPlayer = EntityList.GetLocalPlayer()
 		if not LocalPlayer then return end
 		local HoldingUseKey = bit.band(cmd.buttons, 32) == 32
@@ -52,4 +52,4 @@ local function onPrediction(cmd)
 		end
 end
 
-Cheat.RegisterCallback("prediction", onPrePrediction)
+Cheat.RegisterCallback("pre_prediction", onPrePrediction)
