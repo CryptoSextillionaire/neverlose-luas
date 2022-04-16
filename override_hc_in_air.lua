@@ -1,27 +1,20 @@
-local AimbotHitChance = Menu.FindVar("Aimbot", "Ragebot", "Accuracy", "Hit Chance", "SSG-08")
-local OverrideValue = Menu.SliderInt("Jumpscout", "In Air Hitchance", 60, 0, 100, "Hitchance Override Value")
-local CachedScoutHitChance = AimbotHitChance:Get()
+local function on_prediction(cmd)
+	local local_player = EntityList.GetLocalPlayer()
+	local in_air = bit.band(local_player:GetProp("m_fFlags"), bit.lshift(1, 0)) == 0
+	
+	if not local_player or not in_air then
+        return
+    end
+	
+	local wpn = local_player:GetActiveWeapon()
+	
+	if not wpn or wpn:GetWeaponID() ~= 40 then
+        return
+    end
+	
+	for i = 1, 64 do
+		RageBot.OverrideHitchance(i, 60)
+    end
+end
 
-Cheat.RegisterCallback("draw", function()
-		local LocalPlayer = EntityList.GetLocalPlayer()
-	
-		if not LocalPlayer or not LocalPlayer:IsAlive() then
-				if  AimbotHitChance:Get() ~= CachedHitChance then
-						AimbotHitChance:Set(CachedScoutHitChance)
-						return
-				end
-		end
-	
-		local ActiveWeapon = LocalPlayer:GetActiveWeapon()
-	
-		if not ActiveWeapon or ActiveWeapon:GetWeaponID() ~= 40 then
-				return
-		end
-
-		local InAir = bit.band(LocalPlayer:GetProp("m_fFlags"), bit.lshift(1, 0)) == 0
-		if InAir then
-				AimbotHitChance:Set(OverrideValue:Get())
-		elseif not InAir then
-				AimbotHitChance:Set(CachedScoutHitChance)
-		end
-end)
+Cheat.RegisterCallback("prediction", on_prediction)
