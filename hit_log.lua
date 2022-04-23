@@ -1,3 +1,5 @@
+-- @note: nixon: preview: https://cdn.discordapp.com/attachments/791936789857304609/967413141384347688/unknown.png
+-- @note: nixon: font needed:https://anonfiles.com/jff1w0Pax3/verdana-font-family_zip
 local EntityList_GetLocalPlayer, EngineClient_GetScreenSize, Cheat_RegisterCallback, EntityList_GetPlayerForUserID, EngineClient_IsConnected, Render_InitFont, table_insert, Render_Text, Vector2, tostring, table_remove = EntityList.GetLocalPlayer, EngineClient.GetScreenSize, Cheat.RegisterCallback, EntityList.GetPlayerForUserID, EngineClient.IsConnected, Render.InitFont, table.insert, Render.Text, Vector2.new, tostring, table.remove
 
 local players_killed = {}
