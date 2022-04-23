@@ -24,7 +24,7 @@ local function on_prediction()
         return
     end
 
-    for k, v in pairs(all_players) do
+    for k, v in ipairs(all_players) do
         if v:IsDormant() or not v:IsAlive() or v:IsTeamMate() or v == local_player or not v then
             goto skip
         end
