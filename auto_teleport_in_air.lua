@@ -3,9 +3,8 @@ local bit = require("bit")
 local EntityList_GetLocalPlayer, EntityList_GetPlayers = EntityList.GetLocalPlayer, EntityList.GetPlayers
 local Cheat_RegisterCallback, Cheat_FireBullet = Cheat.RegisterCallback, Cheat.FireBullet
 local Exploits_GetCharge, Exploits_ForceTeleport = Exploits.GetCharge, Exploits.ForceTeleport
-local floor = math.floor
 local Menu_FindVar = Menu.FindVar
-local bit_band, bit_lshift = bit.band, bit.lshift
+local bit_band, bit_lshift, math_floor = bit.band, bit.lshift, math.floor
 
 local function on_prediction()
     local local_player = EntityList_GetLocalPlayer()
@@ -33,7 +32,7 @@ local function on_prediction()
         end
 
         local bullet_trace = Cheat_FireBullet(v, v:GetEyePosition(), local_player:GetRenderOrigin())
-        local damage = floor(bullet_trace.damage)
+        local damage = math_floor(bullet_trace.damage)
         if damage > 0 then
         --    print("[auto_teleport_in_air] " .. v:GetName() .. " can shoot you with " .. damage .. " damage")
             Exploits_ForceTeleport()
